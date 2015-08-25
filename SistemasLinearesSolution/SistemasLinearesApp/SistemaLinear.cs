@@ -32,10 +32,10 @@ namespace SistemasLinearesApp
                 }
             }
 
-            x[n - 1] = b[n - 1] / a[(n - 1), (n - 1)];
+            x[n - 1] = b[n - 1] / a[(n - 1), (n - 1)];//Aqui já encontramos o Z ou x3 da equação
             for (k = n - 2; k >= 0; k--)
             {
-                x[k] = b[k];
+                x[k] = b[k];//O primeiro for faz com que se inicie a busca pelo Y ou x2
                 for (i = k + 1; i <= n - 1; i++)
                 {
                     x[k] = x[k] - a[k, i] * x[i];
@@ -64,11 +64,12 @@ namespace SistemasLinearesApp
             double[] x0 = new double[b.Length];//vetor dos termos constantes
 
        
-            double[] vA = { 1, 2, 3 };//vetor de aproximação inicial
+            //double[] vA = { 1, 2, 3 };//vetor de aproximação inicial
+            double[] vA = { 0, 0, 0 };
 
             const int numDeIteracoes = 20; //Numero maximo de iterações
-            double[] soltem = new double[3];
-            double[] sol = new double[3];
+            //double[] soltem = new double[3];
+            //double[] sol = new double[3];
 
             int numDeLinhas = 3;
 
@@ -101,9 +102,9 @@ namespace SistemasLinearesApp
                 Array.Copy(x0, vA, x0.Length);
                 Console.WriteLine("Iteracao " + k);
                 k = k + 1;
-                for (int l = 0; l < numDeLinhas; l++)
+                for (i = 0; i < numDeLinhas; i++)
                 {
-                    Console.WriteLine(x0[l]);
+                    Console.WriteLine(x0[i]);
                 }
                 Console.WriteLine("");
             }
@@ -120,10 +121,11 @@ namespace SistemasLinearesApp
             int i, j, k;
             double soma = 0;
 
-            double[] x0 = { 1, 2, 3 }; //new double[b.Length];
+            //double[] x0 = { 1, 2, 3 }; //new double[b.Length];
+            double[] x0 = { 0, 0, 0 };
             const int numDeIteracoes = 50;
-            double[] soltem = new double[3];
-            double[] sol = new double[3];
+            //double[] soltem = new double[3];
+            //double[] sol = new double[3];
 
             int numDeLinhas = 3;
 
@@ -151,9 +153,9 @@ namespace SistemasLinearesApp
 ;
                 Console.WriteLine("Iteração " + k);
                 k = k + 1;
-                for (int l = 0; l < numDeLinhas; l++)
+                for (i = 0; i < numDeLinhas; i++)
                 {
-                    Console.WriteLine(x0[l]);
+                    Console.WriteLine(x0[i]);
                 }
                 Console.WriteLine("");
             }
